@@ -16,6 +16,6 @@ export class PrivateComponent implements OnInit {
 
   ngDoCheck() {
     this.user = firebase.auth().currentUser;
-    console.log("private user", this.user)
+    console.log("User", this.user, this.user.uid)
   }
 }

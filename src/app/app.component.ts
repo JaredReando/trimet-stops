@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { AuthenticationService } from './authentication.service';
 import { Router } from '@angular/router';
+import { Rider } from './models/rider.model';
 
 @Component({
   selector: 'app-root',
@@ -18,11 +19,9 @@ export class AppComponent {
     this.authService.user.subscribe(user => {
       if (user == null) {
         this.isLoggedIn = false;
-        this.router.navigate(['']);
       } else {
         this.isLoggedIn = true;
         this.userName = user.displayName;
-        this.router.navigate(['private']);
       }
     });
   }
