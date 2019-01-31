@@ -11,8 +11,8 @@ const routes: Routes = [
   },
   {
     path: 'private',
-    component: PrivateComponent,
-    canActivate: [AuthGuardService]
+    component: PrivateComponent
+    // canActivate: [AuthGuardService]
   }
 ];
 

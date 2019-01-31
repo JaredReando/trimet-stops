@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { AuthenticationService } from './authentication.service';
 import { Router } from '@angular/router';
 import { Rider } from './models/rider.model';
+import { PrivateComponent } from './private/private.component';
+import * as firebase from 'firebase';
 
 @Component({
   selector: 'app-root',
@@ -11,7 +13,7 @@ import { Rider } from './models/rider.model';
 })
 export class AppComponent {
   title = 'trimet-stops';
-  user;
+  private user;
   private isLoggedIn: Boolean;
   private userName: String;
 
@@ -32,5 +34,10 @@ export class AppComponent {
 
   logout() {
     this.authService.logout();
+  }
+
+  ngDoCheck() {
+    this.user = firebase.auth().currentUser;
+    console.log("app component docheck", this.user);
   }
 }
